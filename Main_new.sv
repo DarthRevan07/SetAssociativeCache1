@@ -1,14 +1,14 @@
 module Main_new
 #(
     parameter n=7,//tagsize=total number of bits-number of offset bits-number of index bits+2(valid+dirty)
-    parameter numberOfSets=8,
+    parameter numberOfSets=4,
     bitsForSet=3,
-    numberOfWays=4,
+    numberOfWays=8,
     blockSize=16,
     offsetBits=4,
     numberOfBlocksInMemory=256,
     totalBitForAddress=12,
-    linecount = 524
+    linecount = 10000
 );
 reg [27:0] memoryAddress;
 reg [13:0] writeData;
@@ -53,7 +53,7 @@ initial begin
     readhit=0;
     writehit=0;
     writemiss=0;
-    file = $fopen("res1.txt", "r");
+    file = $fopen("res2.txt", "r");
     for(integer i=0; i<numberOfSets; i=i+1) begin
         for(integer j=0; j<numberOfWays;j++) begin
             tagArrayInCache[i][j]=0;
