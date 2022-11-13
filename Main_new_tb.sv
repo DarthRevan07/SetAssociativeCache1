@@ -1,7 +1,7 @@
 `timescale 1ns / 1ns
-`include "Main.sv"
+`include "Main_new.sv"
 
-module Main_tb;
+module Main_new_tb;
 
 //reg hitmiss;
 // reg [13:0] tagArrayInCache [7:0] [3:0];
@@ -15,10 +15,10 @@ module Main_tb;
 // integer file, statusi;
 // reg clk;
 wire integer readhit, readmiss, writehit, writemiss;
-Main uut(readhit, readmiss, writehit, writemiss);
+Main_new uut();
 initial begin
-    $dumpfile("Main_tb.vcd");
-    $dumpvars(0, Main_tb);
+    $dumpfile("Main_new_tb.vcd");
+    $dumpvars(0, Main_new_tb);
     #10;
 end
 endmodule
